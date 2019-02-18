@@ -35,8 +35,8 @@ def MEAN_WAVEFORM(PATH,files):
     #X, Y, info = readTrc(PATH+files[10])
     #Yvals = np.zeros(X.shape[0])
     #Xvals = np.zeros(Y.shape[0])
-    Yvals = np.zeros(250002)
-    Xvals = np.zeros(250002)
+    Yvals = np.zeros(500002)
+    Xvals = np.zeros(500002)
     avg = 0
     for w in range(0,len(files)):
 
@@ -54,8 +54,8 @@ def WAVEFORM_QUALITY(PATH,files,MEAN,CHI):
     #X, Y, info = readTrc(PATH+files[10])
     #Yvals = np.zeros(X.shape[0])
     #Xvals = np.zeros(Y.shape[0])
-    Yvals = np.zeros(250002)
-    Xvals = np.zeros(250002)
+    Yvals = np.zeros(500002)
+    Xvals = np.zeros(500002)
     avg = 0
     #for w in range(0,1100):
     CHII = []
@@ -97,29 +97,32 @@ def WAVEFORM_QUALITY(PATH,files,MEAN,CHI):
 #######################################################
 #######################################################
 FOLD = ['100/']
-FOLD = ['090/']
+#FOLD = ['090/']
 FOLD = ['085/']
-FOLD = ['080/']
 #FOLD = ['000/']
 #FOLD = ['010/']
-FOLD = ["Time/"]
-
-PATH = '/Volumes/MY PASSPORT/HeliumXenon/'+FOLD[0]
-SPATH = '/Users/austinmcdonald/Desktop/HeliumXenon/'+FOLD[0]
-folders = glob.glob(PATH+"*/")
-folders.sort()
-#folders[0]
-
+#FOLD = ["Time/"]
+FOLD = ['100-2/']
+#PATH = '/Volumes/MY PASSPORT/HeliumXenonV3/'+FOLD[0]
+#SPATH = '/Users/austinmcdonald/Desktop/HeliumXenon/'+FOLD[0]
+#folders = glob.glob(PATH+"*/")
+#folders.sort()
+#print(folders[1])
+#files = os.listdir(folders[1])
+#print(files)
+#print(folders[1]+files[1])
+#X, Y, info = readTrc(folders[1]+files[1])
+#print(X.shape[0])
 
 for per in range(0,len(FOLD)):
 
 
-    PATH = '/Volumes/MY PASSPORT/HeliumXenonV2/'+FOLD[per]
-    SPATH = '/Users/austinmcdonald/Desktop/HeliumXenonV2/'+FOLD[per]
+    PATH = '/Volumes/MY PASSPORT/HeliumXenonV3/'+'100/'#FOLD[per]
+    SPATH = '/Users/austinmcdonald/Desktop/HeliumXenonV3/'+FOLD[per]
     folders = glob.glob(PATH+"*/")
     folders.sort()
     
-    CHI = 100
+    CHI = 60
     for F in range(0,len(folders)):
         NAME = folders[F].split('/')[-2]
         print(NAME)

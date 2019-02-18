@@ -113,16 +113,16 @@ def FITTER_GOLD(x,y):
 
     BF = (XX[TT]-XX[TTT])/2
     Off = np.mean(YY[Trigger:])
-    fitval = [XX[Arr],BF, miny,Off,130e-6]
+    fitval = [XX[Arr],BF, miny,Off]
     cut = 200*25
     cut2=cut-100*25
     fitX = XX[Arr-cut2:Arr+cut]
     fitY = YY[Arr-cut2:Arr+cut]
     
 
-    optim,eh = optimize.curve_fit(func,fitX,fitY,p0=fitval)
+    optim,eh = optimize.curve_fit(funcA,fitX,fitY,p0=fitval)
 
-    chi = sum((func(fitX,*optim)- fitY)**2)
+    chi = sum((funcA(fitX,*optim)- fitY)**2)
     return XX,YY,optim,chi,[Arr-cut2,Arr+cut]
 
 def FITTER_ANOD(x,y):# V2

@@ -5,15 +5,16 @@ from definition import *
 
 
 
-PATH = '/Users/austinmcdonald/Desktop/HeliumXenonV2/'
+PATH = '/Users/austinmcdonald/Desktop/HeliumXenonV3/'
 
 #folders = glob.glob(PATH+"*/")
 #folders.sort()
 #folders = [folders[1]]
 #folders = [folders[1]]
-folders = [PATH+'100/',PATH+'090/',PATH+'085/',PATH+'080/']
-
-
+folders = [PATH+'100/',PATH+'090/',PATH+'085/']
+#folders = [PATH+'090/']
+#folders = [PATH+'100/']
+folders = [PATH+'101/']
 
 # arrival, sigma, max, RC
 DATA = []
@@ -35,6 +36,8 @@ for F in range(0,len(folders)):
             
             EE =int(fi.split('.')[0].split('-')[-1])
             PP = int(fi.split('.')[0].split('-')[2].split('_')[0])
+           
+            
             ident = None
             if PP==1:
                 PP = info[0]
@@ -42,7 +45,7 @@ for F in range(0,len(folders)):
             elif PP==3:
                 PP = info[1]
                 ident = 'd'
-            elif PP==6:
+            elif PP==6 or PP ==5:
                 PP = info[2]
                 ident = 's'
             elif PP==9:
@@ -59,4 +62,4 @@ for F in range(0,len(folders)):
             DATA.append(INFO)
 DATA = np.array(DATA)
 #print(DATA[:,0])
-np.save('XenonHelium.npy',DATA)
+np.save('XenonHeliumTT.npy',DATA)
